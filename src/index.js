@@ -8,6 +8,7 @@ import { dirname, join } from 'path';
 // Import routes
 import productsRoutes from './routes/products.js';
 import categoriesRoutes from './routes/categories.js';
+import usersRoutes from './routes/users.js';
 
 // Initialize Express app
 const app = express();
@@ -25,6 +26,7 @@ app.use(express.json());
 // Routes
 app.use('/api/products', productsRoutes);
 app.use('/api/categories', categoriesRoutes);
+app.use('/api/users', usersRoutes);
 
 // Basic root route
 app.get('/', (req, res) => {
@@ -35,7 +37,9 @@ app.get('/', (req, res) => {
       { path: '/api/products/:id', description: 'Get a specific product by ID' },
       { path: '/api/products/category/:id', description: 'Get products by category' },
       { path: '/api/categories', description: 'Get all categories' },
-      { path: '/api/categories/home', description: 'Get categories with display information' }
+      { path: '/api/categories/home', description: 'Get categories with display information' },
+      { path: '/api/users/auth', description: 'Authenticate a user with email and password' },
+      { path: '/api/users/:id', description: 'Get complete user data by ID' }
     ]
   });
 });
