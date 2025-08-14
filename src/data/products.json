@@ -1,0 +1,268 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Laptop",
+        "price": 999.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "A high-performance laptop designed for work, gaming, and entertainment.",
+        "imgUrl": "https://cdn.thewirecutter.com/wp-content/media/2024/07/laptopstopicpage-2048px-3685-2x1-1.jpg?width=1024&quality=75&crop=2:1&auto=webp",
+        "mfgName": "Dell",
+        "longDesc": "The Dell Laptop delivers on its promise: A high-performance laptop designed for work, gaming, and entertainment. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Laptop integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Laptop remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 2,
+        "name": "Smartphone",
+        "price": 499.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "A sleek smartphone with a powerful camera and fast processor.",
+        "imgUrl": "https://m.media-amazon.com/images/I/51AHHmX-17L.jpg",
+        "mfgName": "Samsung",
+        "longDesc": "The Samsung Smartphone delivers on its promise: A sleek smartphone with a powerful camera and fast processor. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Smartphone integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Smartphone remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 3,
+        "name": "Headphones",
+        "price": 199.99,
+        "category": "Accessories",
+        "inStock": false,
+        "shortDesc": "Over-ear headphones that deliver immersive sound quality.",
+        "imgUrl": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=dkp4djAxbnA1NnpYWDIvVklnLzRpUWtuVHYzMERCZURia3c5SzJFOTlPZ3oveDdpQVpwS0ltY2w2UW05aU90T1lYTmlwOFY3ZXdFd0FRY2dWaUc5UlE",
+        "mfgName": "Apple",
+        "longDesc": "The Apple Headphones delivers on its promise: Over-ear headphones that deliver immersive sound quality. Engineered for the accessories segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Headphones integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Headphones remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 4,
+        "name": "Smartwatch",
+        "price": 299.99,
+        "category": "Wearables",
+        "inStock": true,
+        "shortDesc": "A stylish smartwatch that tracks fitness and keeps you connected.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71HqlGY1rgL.jpg",
+        "mfgName": "Apple",
+        "longDesc": "The Apple Smartwatch delivers on its promise: A stylish smartwatch that tracks fitness and keeps you connected. Engineered for the wearables segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Smartwatch integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Smartwatch remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 5,
+        "name": "Tablet",
+        "price": 399.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "A lightweight tablet perfect for reading, streaming, and productivity.",
+        "imgUrl": "https://m.media-amazon.com/images/I/718N62+jU7S.jpg",
+        "mfgName": "Apple",
+        "longDesc": "The Apple Tablet delivers on its promise: A lightweight tablet perfect for reading, streaming, and productivity. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Tablet integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Tablet remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 6,
+        "name": "Bluetooth Speaker",
+        "price": 149.99,
+        "category": "Accessories",
+        "inStock": true,
+        "shortDesc": "Portable Bluetooth speaker with rich, clear audio and deep bass.",
+        "imgUrl": "https://m.media-amazon.com/images/I/81Xi7TgdkTL._UF894,1000_QL80_.jpg",
+        "mfgName": "JBL",
+        "longDesc": "The JBL Bluetooth Speaker delivers on its promise: Portable Bluetooth speaker with rich, clear audio and deep bass. Engineered for the accessories segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Bluetooth Speaker integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Bluetooth Speaker remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 7,
+        "name": "Gaming Console",
+        "price": 499.99,
+        "category": "Electronics",
+        "inStock": false,
+        "shortDesc": "Next-gen gaming console for immersive entertainment experiences.",
+        "imgUrl": "https://m.media-amazon.com/images/I/61957nB4PPL.jpg",
+        "mfgName": "Sony",
+        "longDesc": "The Sony Gaming Console delivers on its promise: Next-gen gaming console for immersive entertainment experiences. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Gaming Console integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Gaming Console remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 8,
+        "name": "Wireless Mouse",
+        "price": 29.99,
+        "category": "Accessories",
+        "inStock": true,
+        "shortDesc": "Ergonomic wireless mouse for smooth and precise navigation.",
+        "imgUrl": "https://m.media-amazon.com/images/I/611MVODMR0L._UF1000,1000_QL80_.jpg",
+        "mfgName": "Logitech",
+        "longDesc": "The Logitech Wireless Mouse delivers on its promise: Ergonomic wireless mouse for smooth and precise navigation. Engineered for the accessories segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Wireless Mouse integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Wireless Mouse remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 9,
+        "name": "Mechanical Keyboard",
+        "price": 89.99,
+        "category": "Accessories",
+        "inStock": true,
+        "shortDesc": "Durable mechanical keyboard with responsive tactile keys.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71HVNBsiyXL._UF894,1000_QL80_.jpg",
+        "mfgName": "Keychron",
+        "longDesc": "The Keychron Mechanical Keyboard delivers on its promise: Durable mechanical keyboard with responsive tactile keys. Engineered for the accessories segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Mechanical Keyboard integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Mechanical Keyboard remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 10,
+        "name": "External Hard Drive",
+        "price": 119.99,
+        "category": "Storage",
+        "inStock": true,
+        "shortDesc": "High-capacity external hard drive for secure file storage.",
+        "imgUrl": "https://m.media-amazon.com/images/I/91e-WNUpH0L._UF894,1000_QL80_.jpg",
+        "mfgName": "Western Digital",
+        "longDesc": "The Western Digital External Hard Drive delivers on its promise: High-capacity external hard drive for secure file storage. Engineered for the storage segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the External Hard Drive integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the External Hard Drive remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 11,
+        "name": "Portable Charger",
+        "price": 39.99,
+        "category": "Accessories",
+        "inStock": false,
+        "shortDesc": "Compact power bank to charge your devices on the go.",
+        "imgUrl": "https://m.media-amazon.com/images/I/61sqjfNvuXL._UF894,1000_QL80_.jpg",
+        "mfgName": "Anker",
+        "longDesc": "The Anker Portable Charger delivers on its promise: Compact power bank to charge your devices on the go. Engineered for the accessories segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Portable Charger integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Portable Charger remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 12,
+        "name": "Drone",
+        "price": 799.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "High-tech drone with 4K camera for aerial photography and video.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71WiSZp-qmL._UF1000,1000_QL80_.jpg",
+        "mfgName": "DJI",
+        "longDesc": "The DJI Drone delivers on its promise: High-tech drone with 4K camera for aerial photography and video. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Drone integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Drone remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 13,
+        "name": "Action Camera",
+        "price": 249.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "Rugged action camera ideal for recording adventures in any environment.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71gtKUViyOL._UF894,1000_QL80_.jpg",
+        "mfgName": "GoPro",
+        "longDesc": "The GoPro Action Camera delivers on its promise: Rugged action camera ideal for recording adventures in any environment. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Action Camera integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Action Camera remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 14,
+        "name": "E-Reader",
+        "price": 129.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "Lightweight e-reader with a glare-free display for easy reading.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71Ru5Ic7CyL._UF1000,1000_QL80_.jpg",
+        "mfgName": "Amazon (Kindle)",
+        "longDesc": "The Amazon (Kindle) E-Reader delivers on its promise: Lightweight e-reader with a glare-free display for easy reading. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the E-Reader integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the E-Reader remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 15,
+        "name": "Smart Home Hub",
+        "price": 99.99,
+        "category": "Smart Home",
+        "inStock": false,
+        "shortDesc": "Centralized smart home hub to control all your connected devices.",
+        "imgUrl": "https://assets.aboutamazon.com/e7/43/9ade06ad494c9b00fd88e5c59cc0/echohub-hero-2000x1125.jpg",
+        "mfgName": "Amazon",
+        "longDesc": "The Amazon Smart Home Hub delivers on its promise: Centralized smart home hub to control all your connected devices. Engineered for the smart home segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Smart Home Hub integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Smart Home Hub remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 16,
+        "name": "Security Camera",
+        "price": 149.99,
+        "category": "Smart Home",
+        "inStock": true,
+        "shortDesc": "High-definition security camera with night vision and motion alerts.",
+        "imgUrl": "https://m.media-amazon.com/images/I/61gJcez9unL._UF894,1000_QL80_.jpg",
+        "mfgName": "Blink",
+        "longDesc": "The Blink Security Camera delivers on its promise: High-definition security camera with night vision and motion alerts. Engineered for the smart home segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Security Camera integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Security Camera remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 17,
+        "name": "VR Headset",
+        "price": 399.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "Virtual reality headset for an immersive gaming and viewing experience.",
+        "imgUrl": "https://m.media-amazon.com/images/I/61HHiZyQy5L.jpg",
+        "mfgName": "Meta",
+        "longDesc": "The Meta VR Headset delivers on its promise: Virtual reality headset for an immersive gaming and viewing experience. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the VR Headset integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the VR Headset remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 18,
+        "name": "Electric Scooter",
+        "price": 599.99,
+        "category": "Transportation",
+        "inStock": false,
+        "shortDesc": "Eco-friendly electric scooter for quick and convenient city travel.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71Wu7YXfKVL.jpg",
+        "mfgName": "Segway-Ninebot",
+        "longDesc": "The Segway-Ninebot Electric Scooter delivers on its promise: Eco-friendly electric scooter for quick and convenient city travel. Engineered for the transportation segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Electric Scooter integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Electric Scooter remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 19,
+        "name": "Fitness Tracker",
+        "price": 79.99,
+        "category": "Wearables",
+        "inStock": true,
+        "shortDesc": "Fitness tracker that monitors your daily activity and health stats.",
+        "imgUrl": "https://m.media-amazon.com/images/I/41VhREX2w+L._UF894,1000_QL80_.jpg",
+        "mfgName": "Fitbit",
+        "longDesc": "The Fitbit Fitness Tracker delivers on its promise: Fitness tracker that monitors your daily activity and health stats. Engineered for the wearables segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Fitness Tracker integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Fitness Tracker remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 20,
+        "name": "Smart Light Bulb",
+        "price": 24.99,
+        "category": "Smart Home",
+        "inStock": true,
+        "shortDesc": "Energy-efficient smart bulb controllable via app or voice commands.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71Ks4KNSrcL.jpg",
+        "mfgName": "Philips Hue",
+        "longDesc": "The Philips Hue Smart Light Bulb delivers on its promise: Energy-efficient smart bulb controllable via app or voice commands. Engineered for the smart home segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Smart Light Bulb integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Smart Light Bulb remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 21,
+        "name": "Noise-Cancelling Earbuds",
+        "price": 159.99,
+        "category": "Accessories",
+        "inStock": true,
+        "shortDesc": "Compact earbuds with active noise cancellation for clear sound.",
+        "imgUrl": "https://m.media-amazon.com/images/I/71l2qgYAjoL._UF894,1000_QL80_.jpg",
+        "mfgName": "Sony",
+        "longDesc": "The Sony Noise-Cancelling Earbuds delivers on its promise: Compact earbuds with active noise cancellation for clear sound. Engineered for the accessories segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Noise-Cancelling Earbuds integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Noise-Cancelling Earbuds remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 22,
+        "name": "4K Monitor",
+        "price": 349.99,
+        "category": "Electronics",
+        "inStock": true,
+        "shortDesc": "Ultra HD 4K monitor for sharp visuals and professional work.",
+        "imgUrl": "https://m.media-amazon.com/images/I/61zFTBnMeiL._UF894,1000_QL80_.jpg",
+        "mfgName": "LG",
+        "longDesc": "The LG 4K Monitor delivers on its promise: Ultra HD 4K monitor for sharp visuals and professional work. Engineered for the electronics segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the 4K Monitor integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the 4K Monitor remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 23,
+        "name": "Webcam",
+        "price": 59.99,
+        "category": "Accessories",
+        "inStock": true,
+        "shortDesc": "HD webcam perfect for video conferencing and streaming.",
+        "imgUrl": "https://m.media-amazon.com/images/I/81G42M8krfL._UF1000,1000_QL80_.jpg",
+        "mfgName": "Logitech",
+        "longDesc": "The Logitech Webcam delivers on its promise: HD webcam perfect for video conferencing and streaming. Engineered for the accessories segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Webcam integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Webcam remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      },
+      {
+        "id": 24,
+        "name": "Smart Thermostat",
+        "price": 199.99,
+        "category": "Smart Home",
+        "inStock": false,
+        "shortDesc": "Smart thermostat that learns your schedule to save energy.",
+        "imgUrl": "http://m.media-amazon.com/images/I/51U1jXuTPVL._UF894,1000_QL80_.jpg",
+        "mfgName": "Google Nest",
+        "longDesc": "The Google Nest Smart Thermostat delivers on its promise: Smart thermostat that learns your schedule to save energy. Engineered for the smart home segment, it combines reliable build quality with thoughtful ergonomics and a feature set that balances day‑to‑day usability with ambition. Materials and component choices are selected to withstand real-world use, while the overall design keeps weight and footprint in check.\n\nWhether you're upgrading from an older model or building out a new setup, the Smart Thermostat integrates cleanly with common ecosystems and accessories. Out of the box, setup is straightforward, and ongoing maintenance is minimal. For power users, advanced options unlock deeper customization so you can tune performance to specific workflows—from productivity and creative work to entertainment and travel.\n\nIn testing scenarios that mirror everyday tasks, the Smart Thermostat remains consistent and predictable, which is often more valuable than chasing peak benchmarks. The result is a dependable companion that reduces friction, supports focus, and lets the technology fade into the background so the work—and the fun—can take center stage."
+      }
+    ]
+  }
