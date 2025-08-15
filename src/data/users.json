@@ -519,6 +519,32 @@
                 "zip": "90069",
                 "phone": "310-555-3456"        
             }
-        }
+        },
+        {
+            "id": 21,
+            "firstName": "Scott",
+            "lastName": "Lonis",
+            "email": "scott.lonis@outlook.com",
+            "billing": {
+                "firstName": "Scott",
+                "lastName": "Lonis",
+                "address1": "2020 Friends Circle",
+                "address2": "Apt 5F",
+                "city": "Los Angeles",
+                "state": "CA",
+                "zip": "90069",
+                "phone": "214-923-3653"        
+            },
+            "shipping": {
+                "firstName": "Scott",
+                "lastName": "Lonis",
+                "address1": "2020 Friends Circle",
+                "address2": "Apt 5F",
+                "city": "Los Angeles",
+                "state": "CA",
+                "zip": "90069",
+                "phone": "214-923-3653"        
+            }
+        }        
     ]
 }

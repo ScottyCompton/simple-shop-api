@@ -3,7 +3,7 @@ import express from 'express';
 import { promises as fs } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-
+import delay from 'delay'
 const router = express.Router();
 
 // Get current directory
@@ -21,6 +21,7 @@ const usersFilePath = join(__dirname, '../data/users.json');
 router.post('/auth', async (req, res) => {
   try {
     const { email, password } = req.body;
+    await delay(3000); // Simulate a delay for demonstration purposes
 
     // Validate request body
     if (!email || !password) {
