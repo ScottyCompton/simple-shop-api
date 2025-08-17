@@ -1,4 +1,4 @@
-// src/index.js
+// src/index.ts
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';

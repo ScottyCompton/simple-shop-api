@@ -5,16 +5,44 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node dist/index.js",
+    "dev": "cross-env NODE_OPTIONS=--loader=ts-node/esm nodemon --watch src --ext ts,json src/index.ts",
+    "build": "tsc",
+    "migrate:products": "node scripts/migrate-products.mjs",
+    "migrate:users": "node scripts/migrate-users.mjs",
+    "migrate:states": "node scripts/migrate-states.mjs",
+    "migrate:all": "npm run migrate:products && npm run migrate:users && npm run migrate:states"
   },
   "dependencies": {
+    "@prisma/client": "^6.14.0",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "delay": "^6.0.0",
     "express": "^4.18.2",
-    "morgan": "^1.10.0"
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "typescript": "^5.9.2",
+    "underscore": "^1.13.7",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "@testing-library/jest-dom": "^6.7.0",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/lodash": "^4.17.20",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.3.0",
+    "@types/underscore": "^1.13.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "cross-env": "^10.0.0",
+    "jest": "^30.0.5",
+    "jsdom": "^26.1.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "prisma": "^6.14.0",
+    "ts-node": "^10.9.2",
+    "vitest": "^3.2.4"
   }
 }
