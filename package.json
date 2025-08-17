@@ -11,7 +11,8 @@
     "migrate:products": "node scripts/migrate-products.mjs",
     "migrate:users": "node scripts/migrate-users.mjs",
     "migrate:states": "node scripts/migrate-states.mjs",
-    "migrate:all": "npm run migrate:products && npm run migrate:users && npm run migrate:states"
+    "migrate:shipping": "node scripts/migrate-shipping-types.mjs",
+    "migrate:all": "npm run migrate:products && npm run migrate:users && npm run migrate:states && npm run migrate:shipping"
   },
   "dependencies": {
     "@prisma/client": "^6.14.0",

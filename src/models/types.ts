@@ -38,6 +38,14 @@ export interface State {
   state: string;
 }
 
+export interface ShippingType {
+  id: number;
+  value: string;
+  label: string;
+  price: number;
+}
+
+
 // Response interfaces
 export interface ProductsResponse {
   data: {

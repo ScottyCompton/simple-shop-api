@@ -60,3 +60,10 @@ model State {
   
   @@map("states")
 }
+
+model ShippingType {
+  id    Int   @id @default(autoincrement())
+  value String @unique
+  label String
+  price Float
+}
