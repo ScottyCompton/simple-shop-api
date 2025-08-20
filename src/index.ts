@@ -45,7 +45,6 @@ app.get('/', (req, res) => {
       { path: '/api/users/auth', description: 'Authenticate a user with email and password' },
       { path: '/api/users/:id', description: 'Get complete user data by ID' },
       { path: '/api/states', description: 'Get all states with ID, abbreviation, and full name' },
-      { path: '/api/states/abbr', description: 'Get state abbreviations and full names' },
       { path: '/api/shippingtypes', description: 'Get all shipping types' }
     ]
   });

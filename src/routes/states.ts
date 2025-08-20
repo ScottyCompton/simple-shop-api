@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       }
     });
 
-    res.json({ result: states });
+    res.json({ data: { states } });
 
   } catch (err) {
     console.error('Error fetching states:', err);
@@ -34,7 +34,7 @@ router.get('/abbr', async (req, res) => {
     
     // Add a small delay to simulate network latency
     setTimeout(() => {
-      res.json({ result: states });
+      res.json({ data: { states } });
     }, 300);
   } catch (err) {
     console.error('Error fetching state abbreviations:', err);
