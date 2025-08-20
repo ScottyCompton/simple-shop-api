@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     // const shippingTypes = await prisma.shippingTypes.findMany();
 
     // Add a small delay to simulate network latency
-     res.json({ result: shippingTypes });
+     res.json({ data: { shippingTypes } });
   } catch (err) {
     console.error('Error fetching shipping types:', err);
     res.status(500).json({ error: 'Failed to fetch shipping types' });
