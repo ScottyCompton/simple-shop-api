@@ -10,9 +10,11 @@ router.get('/', async (req, res) => {
     const products = await prisma.product.findMany();
     
     // Add a small delay to simulate network latency (like the Next.js API)
-    setTimeout(() => {
+    // setTimeout(() => {
+    //   res.json({ data: { products } });
+    // }, 1000);
       res.json({ data: { products } });
-    }, 1000);
+
   } catch (err) {
     console.error('Error fetching products:', err);
     res.status(500).json({ error: 'Failed to fetch products' });
