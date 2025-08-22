@@ -25,10 +25,13 @@ model Product {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  firstName String
-  lastName  String
-  email     String   @unique
+  id            Int      @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  email         String   @unique
+  
+  // User can have multiple authentication methods
+  auths         Auth[]
   
   // Billing information
   billingFirstName String
@@ -51,6 +54,23 @@ model User {
   shippingPhone     String
   
   @@map("users")
+}
+
+model Auth {
+  id            Int      @id @default(autoincrement())
+  provider      String   // "google", "github", etc.
+  providerId    String   // The ID from the provider
+  avatar        String?  // Avatar URL provided by the authentication provider
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        Int
+  createdAt     DateTime @default(now())
+  lastUsedAt    DateTime @default(now())
+  
+  // Each user can have only one auth entry per provider
+  @@unique([userId, provider])
+  // Each provider ID should be unique per provider
+  @@unique([provider, providerId])
+  @@map("auth")
 }
 
 model State {

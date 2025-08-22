@@ -23,11 +23,22 @@ export interface Address {
   phone: string;
 }
 
+export interface Auth {
+  id: number;
+  provider: string;  // "google", "github", etc.
+  providerId: string; // The ID from the provider
+  avatar?: string | null;
+  userId: number;
+  createdAt: Date;
+  lastUsedAt: Date;
+}
+
 export interface User {
   id: number;
   firstName: string;
   lastName: string;
   email: string;
+  auths?: Auth[];
   billing: Address;
   shipping: Address;
 }
