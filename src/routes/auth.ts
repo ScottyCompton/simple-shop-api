@@ -150,8 +150,10 @@ router.get('/me', async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        avatar, // Now coming from auth records
-        authProviders: authProviders
+        avatar,
+        authProviders: authProviders,
+        hasBilling: user.billingAddress1 !== '',
+        hasShipping: user.shippingAddress1 !== ''
       }
     });
   } catch (error) {
