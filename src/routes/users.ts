@@ -6,6 +6,10 @@ import { User } from '../models/types.js';
 import { generateToken } from '../services/jwtService.js';
 import bcrypt from 'bcrypt';
 import { userLoginSchema } from '../schemas/userLogin.js';
+import { billingInfoSchema } from '../schemas/billingInfo.js';
+import { shippingInfoSchema } from '../schemas/shippingInfo.js';
+
+
 const router = express.Router();
 
 /**
@@ -39,7 +43,9 @@ router.post('/auth', async (req, res) => {
         firstName: true,
         lastName: true,
         email: true,
-        password: true
+        password: true,
+        billingAddress1: true,
+        shippingAddress1: true
       }
     });
 
@@ -69,7 +75,9 @@ router.post('/auth', async (req, res) => {
               id: user.id,
               firstName: user.firstName,
               lastName: user.lastName,
-              email: user.email
+              email: user.email,
+              hasBilling: user.billingAddress1 !== '',
+              hasShipping: user.shippingAddress1 !== ''
             },
             token
           }
@@ -82,7 +90,6 @@ router.post('/auth', async (req, res) => {
     console.error('Authentication error:', error);
     return res.status(500).json({ error: 'Server error' });
   }
-
 });
 
 /**
