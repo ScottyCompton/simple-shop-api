@@ -104,66 +104,35 @@ router.get('/me', async (req, res) => {
       });
     }
     
-    // Define the Auth type
-    type AuthRecord = {
+    // Fetch auth methods for the user directly with Prisma
+    let auths: {
       id: number;
       provider: string;
       providerId: string;
-      avatar?: string | null;
+      avatar: string | null;
       userId: number;
       createdAt: Date;
       lastUsedAt: Date;
-    };
-
-    // Fetch auth methods with avatar separately using raw query with column existence check
-    let auths: AuthRecord[] = [];
+    }[] = [];
+    
     try {
-      // First check if avatar column exists to avoid errors
-      const columnCheck = await prisma.$queryRaw`SHOW COLUMNS FROM auth LIKE 'avatar'`;
-      const avatarExists = Array.isArray(columnCheck) && columnCheck.length > 0;
-      
-      // Use a dynamic query based on whether avatar column exists
-      let authResults;
-      if (avatarExists) {
-        authResults = await prisma.$queryRaw`
-          SELECT id, provider, providerId, avatar, userId, createdAt, lastUsedAt 
-          FROM auth 
-          WHERE userId = ${decoded.id}
-          ORDER BY lastUsedAt DESC
-        `;
-      } else {
-        console.warn('Avatar column not found in auth table, using fallback query');
-        // Fallback query without avatar column
-        authResults = await prisma.$queryRaw`
-          SELECT id, provider, providerId, userId, createdAt, lastUsedAt 
-          FROM auth 
-          WHERE userId = ${decoded.id}
-          ORDER BY lastUsedAt DESC
-        `;
-      }
-      
-      // Type assertion for authResults with optional avatar
-      auths = authResults as Array<{
-        id: number;
-        provider: string;
-        providerId: string;
-        avatar?: string | null;
-        userId: number;
-        createdAt: Date;
-        lastUsedAt: Date;
-      }>;
-      
-      // Add null avatar property if it doesn't exist
-      if (!avatarExists) {
-        auths = auths.map(auth => ({
-          ...auth,
-          avatar: null
-        }));
-      }
+      // Get all auth methods for the user with their avatar information
+      auths = await prisma.auth.findMany({
+        where: { userId: decoded.id },
+        orderBy: { lastUsedAt: 'desc' },
+        select: {
+          id: true,
+          provider: true,
+          providerId: true,
+          avatar: true,
+          userId: true,
+          createdAt: true,
+          lastUsedAt: true
+        }
+      });
     } catch (error) {
       console.error('Error fetching auth methods:', error);
-      // Provide empty array as fallback
-      auths = [];
+      // Keep empty array as fallback
     }
     
     // Extract providers from the result

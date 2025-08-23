@@ -18,7 +18,7 @@ try {
   
   // Create the client with detailed logging
   prisma = new PrismaClient({
-    log: ['query', 'info', 'warn', 'error'],
+    log: ['info','warn', 'error'],
     errorFormat: 'pretty',
   });
   

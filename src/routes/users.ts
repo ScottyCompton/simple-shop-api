@@ -2,9 +2,10 @@
 import express from 'express';
 import prisma from '../services/prismaService.js';
 import delay from 'delay';
-import { User, Auth } from '../models/types.js';
+import { User } from '../models/types.js';
 import { generateToken } from '../services/jwtService.js';
-
+import bcrypt from 'bcrypt';
+import { userLoginSchema } from '../schemas/userLogin.js';
 const router = express.Router();
 
 /**
@@ -15,7 +16,12 @@ const router = express.Router();
 router.post('/auth', async (req, res) => {
   try {
     const { email, password } = req.body;
-    await delay(3000); // Simulate a delay for demonstration purposes
+    await delay(1000); // Simulate a delay for demonstration purposes
+
+    const validation = userLoginSchema.safeParse(req.body);
+    if (!validation.success) {
+      return res.status(400).json({ error: 'Invalid email or password format' });
+    }
 
     // Validate request body
     if (!email || !password) {
@@ -27,40 +33,56 @@ router.post('/auth', async (req, res) => {
     const user = await prisma.user.findFirst({
       where: {
         email: lowerCaseEmail
+      },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        password: true
       }
     });
 
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-
-    // Generate the expected password: first initial of first name + last name, all lowercase
-    const expectedPassword = (user.firstName.charAt(0) + user.lastName).toLowerCase().replace(/\s+/g, '');
-
-    // Check if passwords match
-    if (password === expectedPassword) {
-      // Generate JWT token
-    const token = generateToken(user.id);
     
-    // Return user data with token
-    return res.json({
-      data: {
-        user: {
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email
-        },
-        token
+    // Check if password exists in the user record
+    if (!user.password) {
+      return res.status(401).json({ error: 'Password not set for this user' });
+    }
+
+    bcrypt.compare(password, user.password, (err, result) => {
+      if(err) {
+        console.error('Authentication error:', err);
+        return res.status(500).json({ error: 'Server error' });        
+      }
+
+      if(result) {
+        // Generate JWT token
+        const token = generateToken(user.id);
+        
+        // Return user data with token
+        return res.json({
+          data: {
+            user: {
+              id: user.id,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              email: user.email
+            },
+            token
+          }
+        });
+      } else {
+        return res.status(401).json({ error: 'Invalid credentials' });
       }
     });
-    } else {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
   } catch (error) {
     console.error('Authentication error:', error);
     return res.status(500).json({ error: 'Server error' });
   }
+
 });
 
 /**
@@ -85,23 +107,7 @@ router.get('/:id', async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
     
-    // Fetch auth providers and avatar for this user
-    let authResults;
-    
-    try {
-      // Try to use Prisma raw query, which might be more reliable
-      authResults = await prisma.$queryRaw`
-        SELECT id, provider, providerId, avatar, userId, createdAt, lastUsedAt 
-        FROM auth 
-        WHERE userId = ${userId}
-        ORDER BY lastUsedAt DESC
-      `;
-    } catch (error) {
-      console.error('Error executing raw query:', error);
-      // Fallback to empty array if query fails
-      authResults = [];
-    }
-    
+    // Fetch auth providers and avatar for this user using Prisma client
     // Define Auth type for consistency
     type AuthWithDates = {
       id: number;
@@ -112,24 +118,26 @@ router.get('/:id', async (req, res) => {
       createdAt: Date;
       lastUsedAt: Date;
     };
-
-    // Process the auth results and handle possible data types from raw query
+    
+    // Directly use Prisma model to get auth records
     let auths: AuthWithDates[] = [];
-    if (Array.isArray(authResults)) {
-      auths = authResults.map((auth: any) => {
-        return {
-          id: Number(auth.id),
-          provider: String(auth.provider),
-          providerId: String(auth.providerId),
-          avatar: auth.avatar ? String(auth.avatar) : null,
-          userId: Number(auth.userId),
-          // Handle date serialization carefully
-          createdAt: new Date(auth.createdAt),
-          lastUsedAt: new Date(auth.lastUsedAt)
-        };
+    try {
+      auths = await prisma.auth.findMany({
+        where: { userId: userId },
+        orderBy: { lastUsedAt: 'desc' },
+        select: {
+          id: true,
+          provider: true,
+          providerId: true,
+          avatar: true,
+          userId: true,
+          createdAt: true,
+          lastUsedAt: true
+        }
       });
-    } else {
-      console.warn('Auth results is not an array:', typeof authResults);
+    } catch (error) {
+      console.error('Error fetching auth records:', error);
+      // Keep empty array as fallback
     }
     
     const authProviders = auths.map((auth) => auth.provider);
