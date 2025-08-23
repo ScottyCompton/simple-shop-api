@@ -6,7 +6,10 @@ import { User } from '../models/types.js';
 import { generateToken } from '../services/jwtService.js';
 import bcrypt from 'bcrypt';
 import { userLoginSchema } from '../schemas/userLogin.js';
-import { has } from 'lodash';
+import { billingInfoSchema } from '../schemas/billingInfo.js';
+import { shippingInfoSchema } from '../schemas/shippingInfo.js';
+
+
 const router = express.Router();
 
 /**
@@ -87,7 +90,6 @@ router.post('/auth', async (req, res) => {
     console.error('Authentication error:', error);
     return res.status(500).json({ error: 'Server error' });
   }
-
 });
 
 /**

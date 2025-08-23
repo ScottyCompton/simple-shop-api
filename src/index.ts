@@ -26,6 +26,7 @@ dotenv.config();
 import productsRoutes from './routes/products.js';
 import categoriesRoutes from './routes/categories.js';
 import usersRoutes from './routes/users.js';
+import userRoutes from './routes/user.js'
 import statesRoutes from './routes/states.js';
 import shippingTypeRoutes from './routes/shippingTypes.js';
 import authRoutes from './routes/auth.js';
@@ -60,6 +61,7 @@ app.use(passport.initialize());
 app.use('/api/products', productsRoutes);
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/users', usersRoutes);
+app.use('/api/user', userRoutes);
 app.use('/api/states', statesRoutes);
 app.use('/api/shippingtypes', shippingTypeRoutes);
 app.use('/api/auth', authRoutes);
@@ -80,6 +82,8 @@ app.get('/', (req, res) => {
       { path: '/api/categories/home', description: 'Get categories with display information' },
       { path: '/api/users/auth', description: 'Authenticate a user with email and password' },
       { path: '/api/users/:id', description: 'Get complete user data by ID' },
+      { path: '/api/user/billing', description: 'Update User Billing information' },
+      { path: '/api/user/shipping', description: 'Update User Shipping information' },
       { path: '/api/auth/google', description: 'Authenticate with Google' },
       { path: '/api/auth/github', description: 'Authenticate with GitHub' },
       { path: '/api/auth/me', description: 'Get current user info from token' },
