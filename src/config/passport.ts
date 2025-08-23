@@ -24,32 +24,45 @@ passport.use(
     },
     async (accessToken: any, refreshToken: any, profile: any, done: any) => {
       try {
-        // First, check if this authentication already exists using raw query
-        const authResults = await prisma.$queryRaw`
-          SELECT a.*, u.* FROM auth a
-          JOIN users u ON a.userId = u.id
-          WHERE a.provider = 'google' AND a.providerId = ${profile.id}
-          LIMIT 1
-        `;
+        // First, check if this authentication already exists using Prisma
+        const existingAuth = await prisma.auth.findFirst({
+          where: {
+            provider: 'google',
+            providerId: profile.id.toString()
+          },
+          include: {
+            user: true
+          }
+        });
         
         // If auth exists, return the associated user
-        if (Array.isArray(authResults) && authResults.length > 0) {
-          const auth = authResults[0];
-          const now = new Date();
+        if (existingAuth && existingAuth.user) {
+          // Get new avatar from profile
+          const newAvatar = profile.photos?.[0]?.value || null;
           
-          // Update last used date
-          await prisma.$executeRaw`
-            UPDATE auth 
-            SET lastUsedAt = ${now}
-            WHERE id = ${auth.id}
-          `;
+          // Update last used date and avatar if needed
+          const updateData: { lastUsedAt: Date; avatar?: string | null } = {
+            lastUsedAt: new Date()
+          };
           
-          // Extract user data from joined result
+          // If current avatar is null and we have a new one, update it
+          if (existingAuth.avatar === null && newAvatar) {
+            updateData.avatar = newAvatar;
+            console.log(`Updating Google avatar for user ${existingAuth.userId} from null to ${newAvatar}`);
+          }
+          
+          // Update the auth record
+          await prisma.auth.update({
+            where: { id: existingAuth.id },
+            data: updateData
+          });
+          
+          // Extract user data from the related user
           const user = {
-            id: auth.userId,
-            firstName: auth.firstName,
-            lastName: auth.lastName,
-            email: auth.email,
+            id: existingAuth.user.id,
+            firstName: existingAuth.user.firstName,
+            lastName: existingAuth.user.lastName,
+            email: existingAuth.user.email,
             // ...other fields
           };
           
@@ -69,29 +82,20 @@ passport.use(
 
         // If user exists but hasn't connected with this provider yet
         if (existingUser) {
-          // Create new auth entry for this user using raw query
-          const now = new Date();
+          // Create new auth entry for this user using Prisma client
           const avatar = profile.photos?.[0]?.value || null;
           
           try {
-            // Check if avatar column exists
-            const columnCheck = await prisma.$queryRaw`SHOW COLUMNS FROM auth LIKE 'avatar'`;
-            const avatarExists = Array.isArray(columnCheck) && columnCheck.length > 0;
-            
-            if (avatarExists) {
-              // Use query with avatar column
-              await prisma.$executeRaw`
-                INSERT INTO auth (provider, providerId, userId, avatar, createdAt, lastUsedAt)
-                VALUES ('google', ${profile.id}, ${existingUser.id}, ${avatar}, ${now}, ${now})
-              `;
-            } else {
-              // Use query without avatar column
-              console.warn('Avatar column not found, creating auth record without avatar');
-              await prisma.$executeRaw`
-                INSERT INTO auth (provider, providerId, userId, createdAt, lastUsedAt)
-                VALUES ('google', ${profile.id}, ${existingUser.id}, ${now}, ${now})
-              `;
-            }
+            // Directly use Prisma to create the auth record with avatar
+            await prisma.auth.create({
+              data: {
+                provider: 'google',
+                providerId: profile.id.toString(),
+                avatar: avatar,
+                userId: existingUser.id,
+                // createdAt and lastUsedAt will use default(now())
+              }
+            });
           } catch (error) {
             console.error('Error creating auth record:', error);
             throw error;
@@ -133,13 +137,17 @@ passport.use(
             }
           });
           
-          // Then create the auth entry separately with avatar
+          // Then create the auth entry separately with avatar using Prisma client
           if (newUser && newUser.id) {
-            const now = new Date();
-            await prisma.$executeRaw`
-              INSERT INTO auth (provider, providerId, userId, avatar, createdAt, lastUsedAt)
-              VALUES ('google', ${profile.id}, ${newUser.id}, ${avatar}, ${now}, ${now})
-            `;
+            await prisma.auth.create({
+              data: {
+                provider: 'google',
+                providerId: profile.id.toString(),
+                avatar: avatar,
+                userId: newUser.id,
+                // createdAt and lastUsedAt will use default(now())
+              }
+            });
           }
           
           return done(null, newUser);
@@ -164,32 +172,45 @@ passport.use(
     },
     async (accessToken: any, refreshToken: any, profile: any, done: any) => {
       try {
-        // First, check if this authentication already exists using raw query
-        const authResults = await prisma.$queryRaw`
-          SELECT a.*, u.* FROM auth a
-          JOIN users u ON a.userId = u.id
-          WHERE a.provider = 'github' AND a.providerId = ${profile.id}
-          LIMIT 1
-        `;
+        // First, check if this authentication already exists using Prisma
+        const existingAuth = await prisma.auth.findFirst({
+          where: {
+            provider: 'github',
+            providerId: profile.id.toString()
+          },
+          include: {
+            user: true
+          }
+        });
         
         // If auth exists, return the associated user
-        if (Array.isArray(authResults) && authResults.length > 0) {
-          const auth = authResults[0];
-          const now = new Date();
+        if (existingAuth && existingAuth.user) {
+          // Get new avatar from profile
+          const newAvatar = profile.photos?.[0]?.value || null;
           
-          // Update last used date
-          await prisma.$executeRaw`
-            UPDATE auth 
-            SET lastUsedAt = ${now}
-            WHERE id = ${auth.id}
-          `;
+          // Update last used date and avatar if needed
+          const updateData: { lastUsedAt: Date; avatar?: string | null } = {
+            lastUsedAt: new Date()
+          };
           
-          // Extract user data from joined result
+          // If current avatar is null and we have a new one, update it
+          if (existingAuth.avatar === null && newAvatar) {
+            updateData.avatar = newAvatar;
+            console.log(`Updating GitHub avatar for user ${existingAuth.userId} from null to ${newAvatar}`);
+          }
+          
+          // Update the auth record
+          await prisma.auth.update({
+            where: { id: existingAuth.id },
+            data: updateData
+          });
+          
+          // Extract user data from the related user
           const user = {
-            id: auth.userId,
-            firstName: auth.firstName,
-            lastName: auth.lastName,
-            email: auth.email,
+            id: existingAuth.user.id,
+            firstName: existingAuth.user.firstName,
+            lastName: existingAuth.user.lastName,
+            email: existingAuth.user.email,
             // ...other fields
           };
           
@@ -209,30 +230,20 @@ passport.use(
 
         // If user exists but hasn't connected with this provider yet
         if (existingUser) {
-          // Create new auth entry for this user using raw query
-          // First check if avatar column exists
-          const now = new Date();
+          // Create new auth entry for this user using Prisma client
           const avatar = profile.photos?.[0]?.value || null;
           
           try {
-            // Check if avatar column exists
-            const columnCheck = await prisma.$queryRaw`SHOW COLUMNS FROM auth LIKE 'avatar'`;
-            const avatarExists = Array.isArray(columnCheck) && columnCheck.length > 0;
-            
-            if (avatarExists) {
-              // Use query with avatar column
-              await prisma.$executeRaw`
-                INSERT INTO auth (provider, providerId, userId, avatar, createdAt, lastUsedAt)
-                VALUES ('github', ${profile.id}, ${existingUser.id}, ${avatar}, ${now}, ${now})
-              `;
-            } else {
-              // Use query without avatar column
-              console.warn('Avatar column not found, creating auth record without avatar');
-              await prisma.$executeRaw`
-                INSERT INTO auth (provider, providerId, userId, createdAt, lastUsedAt)
-                VALUES ('github', ${profile.id}, ${existingUser.id}, ${now}, ${now})
-              `;
-            }
+            // Directly use Prisma to create the auth record with avatar
+            await prisma.auth.create({
+              data: {
+                provider: 'github',
+                providerId: profile.id.toString(),
+                avatar: avatar,
+                userId: existingUser.id,
+                // createdAt and lastUsedAt will use default(now())
+              }
+            });
           } catch (error) {
             console.error('Error creating auth record:', error);
             throw error;
@@ -274,13 +285,17 @@ passport.use(
             }
           });
           
-          // Then create the auth entry separately with avatar
+          // Then create the auth entry separately with avatar using Prisma client
           if (newUser && newUser.id) {
-            const now = new Date();
-            await prisma.$executeRaw`
-              INSERT INTO auth (provider, providerId, userId, avatar, createdAt, lastUsedAt)
-              VALUES ('github', ${profile.id}, ${newUser.id}, ${avatar}, ${now}, ${now})
-            `;
+            await prisma.auth.create({
+              data: {
+                provider: 'github',
+                providerId: profile.id.toString(),
+                avatar: avatar,
+                userId: newUser.id,
+                // createdAt and lastUsedAt will use default(now())
+              }
+            });
           }
           
           return done(null, newUser);

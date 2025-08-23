@@ -7,12 +7,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "cross-env NODE_OPTIONS=--loader=ts-node/esm nodemon --watch src --ext ts,json src/index.ts",
-    "build": "tsc",
-    "migrate:products": "node scripts/migrate-products.mjs",
-    "migrate:users": "node scripts/migrate-users.mjs",
-    "migrate:states": "node scripts/migrate-states.mjs",
-    "migrate:shipping": "node scripts/migrate-shipping-types.mjs",
-    "migrate:all": "npm run migrate:products && npm run migrate:users && npm run migrate:states && npm run migrate:shipping"
+    "build": "tsc"
   },
   "dependencies": {
     "@prisma/client": "^6.14.0",

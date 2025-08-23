@@ -41,6 +41,7 @@ export interface User {
   auths?: Auth[];
   billing: Address;
   shipping: Address;
+  password?: string;
 }
 
 export interface State {
