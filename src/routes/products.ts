@@ -4,7 +4,43 @@ import prisma from '../services/prismaService.js';
 
 const router = express.Router();
 
-// GET /api/products - Get all products
+// GET /api/products/page/:page - Get all products with pagination
+router.get('/page/:page', async (req, res) => {
+  try {
+    const { page } = req.params;
+    const pageSize = parseInt(process.env.LIST_PAGE_SIZE || "10"); // Number of products per page
+    const currentPage = parseInt(page || "1");
+    const skip = (currentPage - 1) * pageSize;
+
+    // Get total count for pagination info
+    const totalCount = await prisma.product.count();
+
+    // Get paginated products
+    const products = await prisma.product.findMany({
+      skip: skip,
+      take: pageSize,
+      orderBy: { id: 'asc' }
+    });
+
+    res.json({ 
+      data: { 
+        products,
+        pagination: {
+          totalItems: totalCount,
+          totalPages: Math.ceil(totalCount / pageSize),
+          currentPage: currentPage,
+          pageSize: pageSize
+        } 
+      }
+    });
+
+  } catch (err) {
+    console.error('Error fetching products with pagination:', err);
+    res.status(500).json({ error: 'Failed to fetch products' });
+  }
+});
+
+// GET /api/products - Get all products (non-paginated)
 router.get('/', async (req, res) => {
   try {
     const products = await prisma.product.findMany();
@@ -21,17 +57,49 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET /api/products/category/:id - Get products by category
+// GET /api/products/category/:id/:page - Get products by category with pagination
+router.get('/category/:id/:page', async (req, res) => {
+  try {
+    const { id, page } = req.params;
+    const pageSize = parseInt(process.env.LIST_PAGE_SIZE || "10"); // Number of products per page
+    const currentPage = parseInt(page || "1");
+    const skip = (currentPage - 1) * pageSize;
+
+    // Get total count for pagination info
+    const totalCount = await prisma.product.count({
+      where: { category: id }
+    });
+
+    // Get paginated products
+    const products = await prisma.product.findMany({
+      where: { category: id },
+      skip: skip,
+      take: pageSize,
+      orderBy: { id: 'asc' }
+    });
+    
+    res.json({ 
+      data: { 
+        products, 
+        pagination: {
+          totalItems: totalCount,
+          totalPages: Math.ceil(totalCount / pageSize),
+          currentPage: currentPage,
+          pageSize: pageSize
+        } 
+      } 
+    });
+  } catch (err) {
+    console.error('Error fetching products by category with pagination:', err);
+    res.status(500).json({ error: 'Failed to fetch products by category' });
+  }
+});
+
+// GET /api/products/category/:id - Get all products by category
 router.get('/category/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    
-    if (id === '') {
-      const products = await prisma.product.findMany();
-      return res.json({ data: { products } });
-    }
 
-    // Simplified query - convert both to lowercase for comparison
     const products = await prisma.product.findMany({
       where: {
         category: id
