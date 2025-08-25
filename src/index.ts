@@ -77,6 +77,7 @@ app.get('/', (req, res) => {
     endpoints: [
       { path: '/api/products', description: 'Get all products' },
       { path: '/api/products/:id', description: 'Get a specific product by ID' },
+      { path: '/api/products/category/:id/:page', description: 'Get products by category with pagination' },
       { path: '/api/products/category/:id', description: 'Get products by category' },
       { path: '/api/categories', description: 'Get all categories' },
       { path: '/api/categories/home', description: 'Get categories with display information' },

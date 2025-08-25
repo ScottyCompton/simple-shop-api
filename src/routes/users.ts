@@ -6,8 +6,6 @@ import { User } from '../models/types.js';
 import { generateToken } from '../services/jwtService.js';
 import bcrypt from 'bcrypt';
 import { userLoginSchema } from '../schemas/userLogin.js';
-import { billingInfoSchema } from '../schemas/billingInfo.js';
-import { shippingInfoSchema } from '../schemas/shippingInfo.js';
 
 
 const router = express.Router();
