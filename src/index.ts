@@ -30,6 +30,7 @@ import userRoutes from './routes/user.js'
 import statesRoutes from './routes/states.js';
 import shippingTypeRoutes from './routes/shippingTypes.js';
 import authRoutes from './routes/auth.js';
+import ordersRoutes from './routes/orders.js';
 
 // Initialize Express app
 const app = express();
@@ -65,6 +66,8 @@ app.use('/api/user', userRoutes);
 app.use('/api/states', statesRoutes);
 app.use('/api/shippingtypes', shippingTypeRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/orders', ordersRoutes);
+
 
 // Import user auth routes
 import userAuthRoutes from './routes/userAuth.js';
@@ -89,7 +92,8 @@ app.get('/', (req, res) => {
       { path: '/api/auth/github', description: 'Authenticate with GitHub' },
       { path: '/api/auth/me', description: 'Get current user info from token' },
       { path: '/api/states', description: 'Get all states with ID, abbreviation, and full name' },
-      { path: '/api/shippingtypes', description: 'Get all shipping types' }
+      { path: '/api/shippingtypes', description: 'Get all shipping types' },
+      { path: '/api/orders/create', description: 'Create a new order' }
     ]
   });
 });
