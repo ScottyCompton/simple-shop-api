@@ -20,6 +20,7 @@ model Product {
   imgUrl    String   @db.Text
   mfgName   String
   longDesc  String   @db.LongText
+  orderProducts OrderProduct[]
   
   @@map("products")
 }
@@ -32,6 +33,7 @@ model User {
   password      String?
   // User can have multiple authentication methods
   auths         Auth[]
+  orders        Order[]
   
   // Billing information
   billingFirstName String
@@ -86,4 +88,58 @@ model ShippingType {
   value String @unique
   label String
   price Float
+  orders Order[]
+  
+  // Using the original table name to prevent dropping the table
+  @@map("ShippingType")
+}
+
+model Order {
+  id               Int            @id @default(autoincrement())
+  userId           Int
+  user             User           @relation(fields: [userId], references: [id])
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  status           String         @default("pending")
+  billingFirstName String
+  billingLastName  String
+  billingAddress1  String
+  billingAddress2  String?
+  billingCity      String
+  billingState     String
+  billingZip       String
+  billingPhone     String
+  shippingFirstName String
+  shippingLastName  String
+  shippingAddress1  String
+  shippingAddress2  String?
+  shippingCity      String
+  shippingState     String
+  shippingZip       String
+  shippingPhone     String
+  orderProducts    OrderProduct[]
+  shippingTypeId   Int
+  shippingType     ShippingType   @relation(fields: [shippingTypeId], references: [id])
+  orderSubTotal    Float
+  orderTax         Float
+  orderShippingCost Float
+  paymentReference String?
+  
+  @@map("orders")
+  @@index([userId])
+  @@index([shippingTypeId])
+}
+
+model OrderProduct {
+  id         Int     @id @default(autoincrement())
+  order      Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId    Int
+  product    Product @relation(fields: [productId], references: [id])
+  productId  Int
+  qty        Int
+  unitPrice  Float
+  
+  @@map("orderProducts")
+  @@index([orderId])
+  @@index([productId])
 }

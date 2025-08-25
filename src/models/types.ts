@@ -111,3 +111,31 @@ export interface AuthRequest {
   email: string;
   password: string;
 }
+
+export interface OrderProduct {
+  productId: number;
+  quantity: number;
+  unitPrice: number;
+}
+
+
+export interface Order {
+  userId: number,
+  billingFirstName: string;
+  billingLastName: string;
+  billingAddress1: string;
+  billingAddress2?: string;
+  billingCity: string;
+  billingState: string;
+  billingZip: string;
+  billingPhone: string;
+  shippingFirstName: string;
+  shippingLastName: string;
+  shippingAddress1: string;
+  shippingAddress2?: string;
+  shippingCity: string;
+  shippingState: string;
+  shippingZip: string;
+  shippingPhone: string;
+  orderProducts: OrderProduct[];
+}
