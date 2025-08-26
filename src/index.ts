@@ -24,6 +24,7 @@ dotenv.config();
 
 // Import routes
 import productsRoutes from './routes/products.js';
+import productRoutes from './routes/product.js';
 import categoriesRoutes from './routes/categories.js';
 import usersRoutes from './routes/users.js';
 import userRoutes from './routes/user.js'
@@ -60,6 +61,7 @@ app.use(passport.initialize());
 
 // Routes
 app.use('/api/products', productsRoutes);
+app.use('/api/product', productRoutes)
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/user', userRoutes);
@@ -78,10 +80,10 @@ app.get('/', (req, res) => {
   res.json({
     message: 'Simple Shop API',
     endpoints: [
+      { path: '/api/product/:id', description: 'Get a particular product' },
       { path: '/api/products', description: 'Get all products' },
-      { path: '/api/products/:id', description: 'Get a specific product by ID' },
-      { path: '/api/products/category/:id/:page', description: 'Get products by category with pagination' },
-      { path: '/api/products/category/:id', description: 'Get products by category' },
+      { path: '/api/products/:id/:page', description: 'Get products by category with pagination' },
+      { path: '/api/products/:id', description: 'Get products by category' },
       { path: '/api/categories', description: 'Get all categories' },
       { path: '/api/categories/home', description: 'Get categories with display information' },
       { path: '/api/users/auth', description: 'Authenticate a user with email and password' },

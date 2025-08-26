@@ -57,8 +57,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET /api/products/category/:id/:page - Get products by category with pagination
-router.get('/category/:id/:page', async (req, res) => {
+// GET /api/products//:id/:page - Get products by category with pagination
+router.get('/:id/:page', async (req, res) => {
   try {
     const { id, page } = req.params;
     const pageSize = parseInt(process.env.LIST_PAGE_SIZE || "10"); // Number of products per page
@@ -95,8 +95,8 @@ router.get('/category/:id/:page', async (req, res) => {
   }
 });
 
-// GET /api/products/category/:id - Get all products by category
-router.get('/category/:id', async (req, res) => {
+// GET /api/products/:id - Get all products by category
+router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -110,26 +110,6 @@ router.get('/category/:id', async (req, res) => {
   } catch (err) {
     console.error('Error fetching products by category:', err);
     res.status(500).json({ error: 'Failed to fetch products by category' });
-  }
-});
-
-// GET /api/products/:id - Get a specific product by ID
-router.get('/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    
-    const product = await prisma.product.findUnique({
-      where: { id: parseInt(id) }
-    });
-    
-    if (!product) {
-      return res.status(404).json({ error: 'Product not found' });
-    }
-    
-    res.json({ data: { product } });
-  } catch (err) {
-    console.error('Error fetching product:', err);
-    res.status(500).json({ error: 'Failed to fetch product' });
   }
 });
 
