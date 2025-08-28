@@ -72,7 +72,7 @@ router.post('/create', async (req, res) => {
     let orderSubTotal = 0;
     for (const item of orderProducts) {
       const product = await prisma.product.findUnique({
-        where: { id: item.productId }
+        where: { id: item.id }
       });
       orderSubTotal += (product?.price ?? 0) * item.qty;
     }
@@ -113,19 +113,37 @@ router.post('/create', async (req, res) => {
               orderTax,
               orderShippingCost,
               // Connect the shippingType relation using shippingTypeId
-              shippingType: { connect: { id: orderData.shippingTypeId } }
+              shippingType: { connect: { id: orderData.shippingTypeId } },
+              paymentReference: orderData.paymentReference,
             }
           });
         const orderId = newOrder.id;
+        
+        // Generate order number in format YYYYMMDD00000000
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Add 1 because months are 0-indexed
+        const day = String(now.getDate()).padStart(2, '0');
+        const paddedOrderId = String(orderId).padStart(8, '0');
+        const orderNumber = `${year}${month}${day}${paddedOrderId}`;
+        
+        // Update the order with the generated order number
+        await prisma.order.update({
+          where: { id: orderId },
+          data: { orderNumber }
+        });
+
+
+        
         // insert orderProducts into the orderProducts table
         
         const orderProductsData = await Promise.all(orderProducts.map(async item => {
           const product = await prisma.product.findUnique({ 
-            where: { id: item.productId }
+            where: { id: item.id }
           });
           return {
             orderId,
-            productId: item.productId,
+            productId: item.id,
             qty: item.qty,
             unitPrice: product?.price || 0
           };
@@ -136,11 +154,10 @@ router.post('/create', async (req, res) => {
         });
 
         res.status(201).json({ 
-          success: true, 
-          data: { 
-            order: newOrder, 
-            productsAdded: newOrderProducts.count 
-          } 
+          success: true,
+          order: newOrder, 
+          orderNumber,
+          productsAdded: newOrderProducts.count 
         });
       }
   } catch (err) {
