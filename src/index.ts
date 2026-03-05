@@ -32,6 +32,7 @@ import statesRoutes from './routes/states.js';
 import shippingTypeRoutes from './routes/shippingTypes.js';
 import authRoutes from './routes/auth.js';
 import ordersRoutes from './routes/orders.js';
+import employeesRoutes from './routes/employees.js';
 
 // Initialize Express app
 const app = express();
@@ -69,6 +70,7 @@ app.use('/api/states', statesRoutes);
 app.use('/api/shippingtypes', shippingTypeRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/employees', employeesRoutes);
 
 
 // Import user auth routes
@@ -95,7 +97,10 @@ app.get('/', (req, res) => {
       { path: '/api/auth/me', description: 'Get current user info from token' },
       { path: '/api/states', description: 'Get all states with ID, abbreviation, and full name' },
       { path: '/api/shippingtypes', description: 'Get all shipping types' },
-      { path: '/api/orders/create', description: 'Create a new order' }
+      { path: '/api/orders/create', description: 'Create a new order' },
+      { path: '/api/employees', description: 'Get all employees' },
+      { path: '/api/employees/search', description: 'Search employees by last name (query param: ?lastname=smith)' },
+      { path: '/api/employees/:id', description: 'Get employee by ID' }
     ]
   });
 });
