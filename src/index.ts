@@ -24,6 +24,7 @@ dotenv.config();
 
 // Import routes
 import productsRoutes from './routes/products.js';
+import productRoutes from './routes/product.js';
 import categoriesRoutes from './routes/categories.js';
 import usersRoutes from './routes/users.js';
 import userRoutes from './routes/user.js'
@@ -31,6 +32,7 @@ import statesRoutes from './routes/states.js';
 import shippingTypeRoutes from './routes/shippingTypes.js';
 import authRoutes from './routes/auth.js';
 import ordersRoutes from './routes/orders.js';
+import employeesRoutes from './routes/employees.js';
 
 // Initialize Express app
 const app = express();
@@ -60,6 +62,7 @@ app.use(passport.initialize());
 
 // Routes
 app.use('/api/products', productsRoutes);
+app.use('/api/product', productRoutes)
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/user', userRoutes);
@@ -67,6 +70,7 @@ app.use('/api/states', statesRoutes);
 app.use('/api/shippingtypes', shippingTypeRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/employees', employeesRoutes);
 
 
 // Import user auth routes
@@ -78,10 +82,10 @@ app.get('/', (req, res) => {
   res.json({
     message: 'Simple Shop API',
     endpoints: [
+      { path: '/api/product/:id', description: 'Get a particular product' },
       { path: '/api/products', description: 'Get all products' },
-      { path: '/api/products/:id', description: 'Get a specific product by ID' },
-      { path: '/api/products/category/:id/:page', description: 'Get products by category with pagination' },
-      { path: '/api/products/category/:id', description: 'Get products by category' },
+      { path: '/api/products/:id/:page', description: 'Get products by category with pagination' },
+      { path: '/api/products/:id', description: 'Get products by category' },
       { path: '/api/categories', description: 'Get all categories' },
       { path: '/api/categories/home', description: 'Get categories with display information' },
       { path: '/api/users/auth', description: 'Authenticate a user with email and password' },
@@ -93,7 +97,10 @@ app.get('/', (req, res) => {
       { path: '/api/auth/me', description: 'Get current user info from token' },
       { path: '/api/states', description: 'Get all states with ID, abbreviation, and full name' },
       { path: '/api/shippingtypes', description: 'Get all shipping types' },
-      { path: '/api/orders/create', description: 'Create a new order' }
+      { path: '/api/orders/create', description: 'Create a new order' },
+      { path: '/api/employees', description: 'Get all employees' },
+      { path: '/api/employees/search', description: 'Search employees by last name (query param: ?lastname=smith)' },
+      { path: '/api/employees/:id', description: 'Get employee by ID' }
     ]
   });
 });

@@ -96,6 +96,7 @@ model ShippingType {
 
 model Order {
   id               Int            @id @default(autoincrement())
+  orderNumber      String         @default("")
   userId           Int
   user             User           @relation(fields: [userId], references: [id])
   createdAt        DateTime       @default(now())
